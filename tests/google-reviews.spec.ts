@@ -1,0 +1,20 @@
+import {test,expect} from '@playwright/test';
+import content from './fixtures/website';
+test('Google reviews cards expose all pages and adapt to mobile',async({page})=>{
+ await page.route('https://fonts.googleapis.com/**',r=>r.abort());
+ await page.route('**/api/v1/website',r=>r.fulfill({json:content}));
+ await page.route('**/api/v1/website/portfolio',r=>r.fulfill({json:{sections:[],photos:[]}}));
+ await page.route('**/api/v1/website/reviews*',r=>{const next=new URL(r.request().url()).searchParams.has('page_token');return r.fulfill({json:{status:'ready',average_rating:4.5,total:7,next_page_token:next?'':'page-2',reviews:Array.from({length:next?1:6},(_,i)=>({id:next?'last':String(i),author:next?'Final reviewer':`Reviewer ${i+1}`,rating:i===0?2:5,text:'Test review content',date:'2026-10-20T00:00:00Z'}))}});});
+ await page.goto('/');
+ const reviews=page.locator('.google-reviews');
+ await expect(reviews.locator('.review-card')).toHaveCount(6);
+ await expect(reviews.getByText('Based on 7 Google reviews')).toBeVisible();
+ await expect(reviews.getByLabel('2 out of 5 stars')).toBeVisible();
+ await reviews.getByRole('button',{name:'Show more reviews'}).click();
+ await expect(reviews.locator('.review-card')).toHaveCount(7);
+ await expect(reviews.getByText('Final reviewer')).toBeVisible();
+ await expect(reviews.getByRole('button',{name:'Show more reviews'})).toHaveCount(0);
+ await expect(reviews.getByRole('link')).toHaveAttribute('href','https://maps.app.goo.gl/hqcUR8DCvtaxcHKfA');
+ await page.setViewportSize({width:390,height:844});
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+});

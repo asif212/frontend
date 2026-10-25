@@ -1,3 +1,4 @@
+import {setSeo} from './seo';
 import React, {useEffect, useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {api, setToken} from './api';
@@ -5,19 +6,21 @@ import './style.css';
 import {Toaster, toast} from 'sonner';
 import {Plus, RefreshCw, Columns3, List, CircleCheck, Clock3, CircleAlert, Layers3, ArrowRight, CalendarDays, CheckSquare2} from 'lucide-react';
 import {WorkspaceShell, viewDescriptions} from './WorkspaceShell';
+import {Website, WebsiteEditor} from './Website';
 import {AuthScreen} from './AuthScreen';
 import {Modal, DataTable, SearchInput, Loading, EmptyState, Badge} from './ui';
 import {Workbench, featureTitles, type Feature} from './Workbench';
 
 type Row = {id: number; [key: string]: unknown};
 type User = Row & {name: string; role: string; must_change_password: boolean};
-type View = 'tasks' | 'attendance' | 'leave' | 'employees' | 'holidays' | 'locations' | 'teams' | Feature;
-const titles: Record<View, string> = {tasks:'Team board', attendance:'Attendance', leave:'Leave & approvals', employees:'People', holidays:'Holiday calendar', locations:'Work locations', teams:'Teams',...featureTitles};
+type View = 'tasks' | 'attendance' | 'leave' | 'employees' | 'holidays' | 'locations' | 'teams' | 'website' | Feature;
+const titles: Record<View, string> = {website:'Website content',tasks:'Team board', attendance:'Attendance', leave:'Leave & approvals', employees:'People', holidays:'Holiday calendar', locations:'Work locations', teams:'Teams',...featureTitles};
 const statuses = ['assigned', 'in_progress', 'blocked', 'done'];
 const transitions: Record<string, string[]> = {assigned:['in_progress','blocked'], in_progress:['blocked','done'], blocked:['in_progress','assigned'], done:['assigned']};
 const text = (value: unknown) => value == null ? '—' : String(value).replaceAll('_',' ');
 
 function App() {
+  useEffect(()=>{setSeo({title:'MyTime · Sign in | NialTech',description:'Sign in to your private NialTech MyTime workspace.',path:'/app',noindex:true});},[]);
   const [user, setUser] = useState<User | null>(null);
   const [view, setView] = useState<View>('tasks');
   const [rows, setRows] = useState<Row[]>([]);
@@ -37,7 +40,7 @@ function App() {
   const [blockTask,setBlockTask]=useState<Row|null>(null);
 
   async function load() {
-    if (advanced) return;
+    if (advanced || view === 'website') return;
     setLoading(true); setError('');
     try {
       const result = await api<Row[]>(`/${view}`);
@@ -80,7 +83,7 @@ function App() {
 
   if (!user || user.must_change_password) return <AuthScreen changePassword={Boolean(user)} busy={busy} error={error} onSubmit={user?changePassword:login}/>;
 
-  const allowed: View[] = admin ? ['teams'] : ['tasks','projects','issues','sprints','attendance','corrections','calendar','leave','leave-accounts','employees','profiles','holidays','notifications',...(lead ? ['locations','leave-policies','reports','audit','settings'] as View[] : [])];
+  const allowed: View[] = admin ? ['teams','website'] : ['tasks','projects','issues','sprints','attendance','corrections','calendar','leave','leave-accounts','employees','profiles','holidays','notifications',...(lead ? ['locations','leave-policies','reports','audit','settings'] as View[] : [])];
   const filtered = rows.filter(r => JSON.stringify(r).toLowerCase().includes(search.toLowerCase()) && (view!=='tasks'||statusFilter==='all'||r.status===statusFilter));
   const person = (id: unknown) => text(people.find(p => p.id === id)?.name || id);
   const canCreate = view === 'teams' || (lead && ['tasks','employees','holidays','locations'].includes(view)) || (!lead && view === 'leave');
@@ -113,7 +116,7 @@ function App() {
       {view === 'teams' && <><Field name="name" label="Team name"/><Field name="timezone" label="IANA timezone" defaultValue="Asia/Kolkata"/></>}
 
     </form>;
-  return <WorkspaceShell user={user} view={view} allowed={allowed} titles={titles} onNavigate={next=>{setView(next as View);setCreating(false);setSearch('');setStatusFilter('all');}} onLogout={()=>void logout()}>{advanced ? <Workbench view={view as Feature} user={user}/> : <section className="content"><div className="heading"><div><p className="eyebrow">{view==='tasks'?'WORK MANAGEMENT':view==='teams'?'ADMINISTRATION':'PEOPLE & TIME'}</p><h1>{titles[view]}</h1><p className="muted">{viewDescriptions[view]}</p></div>{canCreate && <Modal open={creating} onOpenChange={setCreating} title={view==='leave'?'Request time off':`Create ${view==='tasks'?'task':view==='employees'?'employee':view==='holidays'?'holiday':view==='locations'?'work location':'team'}`} description="Add the details below. You can review everything before saving." footer={<><button type="button" className="secondary" onClick={()=>setCreating(false)}>Cancel</button><button type="submit" form="main-create-form" disabled={busy}>{busy?'Saving…':'Save'}</button></>} trigger={<button><Plus size={16}/>{view==='leave'?'Request leave':view==='tasks'?'Create task':view==='employees'?'Add employee':view==='holidays'?'Add holiday':view==='locations'?'Add location':'Create team'}</button>}>{error&&<p role="alert" className="error">{error}</p>}{createForm}</Modal>}</div>{error && !creating && <p className="error" role="alert">{error}</p>}
+  return <WorkspaceShell user={user} view={view} allowed={allowed} titles={titles} onNavigate={next=>{setView(next as View);setCreating(false);setSearch('');setStatusFilter('all');}} onLogout={()=>void logout()}>{view==='website' ? <WebsiteEditor/> : advanced ? <Workbench view={view as Feature} user={user}/> : <section className="content"><div className="heading"><div><p className="eyebrow">{view==='tasks'?'WORK MANAGEMENT':view==='teams'?'ADMINISTRATION':'PEOPLE & TIME'}</p><h1>{titles[view]}</h1><p className="muted">{viewDescriptions[view]}</p></div>{canCreate && <Modal open={creating} onOpenChange={setCreating} title={view==='leave'?'Request time off':`Create ${view==='tasks'?'task':view==='employees'?'employee':view==='holidays'?'holiday':view==='locations'?'work location':'team'}`} description="Add the details below. You can review everything before saving." footer={<><button type="button" className="secondary" onClick={()=>setCreating(false)}>Cancel</button><button type="submit" form="main-create-form" disabled={busy}>{busy?'Saving…':'Save'}</button></>} trigger={<button><Plus size={16}/>{view==='leave'?'Request leave':view==='tasks'?'Create task':view==='employees'?'Add employee':view==='holidays'?'Add holiday':view==='locations'?'Add location':'Create team'}</button>}>{error&&<p role="alert" className="error">{error}</p>}{createForm}</Modal>}</div>{error && !creating && <p className="error" role="alert">{error}</p>}
 
     {view === 'teams' && <details className="panel"><summary>Create a team lead</summary><form className="create-form" onSubmit={e=>{e.preventDefault();const form=e.currentTarget;const body=Object.fromEntries(new FormData(form));const teamId=body.team_id;delete body.team_id;void action(async()=>{await api(`/teams/${teamId}/leads`,'POST',{...body,role:'lead'});form.reset();});}}><label>Team<select name="team_id" required>{rows.map(r=><option key={r.id} value={r.id}>{text(r.name)}</option>)}</select></label><Field name="name" label="Lead name"/><Field name="username" label="Username"/><Field name="password" label="Temporary password" type="password" minLength={12}/><button disabled={busy}>Create lead</button></form><div className="actions">{rows.map(row=><button key={row.id} className="secondary" disabled={busy} onClick={()=>void action(()=>api(`/teams/${row.id}/status`,'POST',{status:row.status==='active'?'suspended':'active'}))}>{row.status==='active'?'Suspend':'Reactivate'} {text(row.name)}</button>)}</div></details>}
     {view==='tasks' && <div className="overview-stats">{[{label:'Total tasks',count:rows.length,Icon:Layers3,color:'blue'}, {label:'In progress',count:rows.filter(r=>r.status==='in_progress').length,Icon:Clock3,color:'purple'}, {label:'Needs attention',count:rows.filter(r=>r.status==='blocked').length,Icon:CircleAlert,color:'amber'}, {label:'Completed',count:rows.filter(r=>r.status==='done').length,Icon:CircleCheck,color:'teal'}].map(stat=><article key={stat.label}><span className={`stat-icon ${stat.color}`}><stat.Icon size={19}/></span><div><small>{stat.label}</small><strong>{loading?'—':stat.count}</strong></div></article>)}</div>}
@@ -127,4 +130,4 @@ function columns(view: View): string[] {
   return ({tasks:[], attendance:['user_id','work_date','effective_check_in_at','effective_check_out_at','corrected','auto_closed'],leave:['user_id','start_date','end_date','reason','chargeable_days','approval_count','status'],employees:['name','username','role','active'],holidays:['name','date','location_id'],locations:['name','lat','lng'],teams:['id','name','timezone','status']} as Partial<Record<View,string[]>>)[view] || [];
 }
 function Field({label,...props}: React.InputHTMLAttributes<HTMLInputElement> & {label:string}) {return <label>{label}<input required {...props}/></label>;}
-createRoot(document.getElementById('root')!).render(<React.StrictMode><App/><Toaster position="bottom-right" richColors closeButton/></React.StrictMode>);
+createRoot(document.getElementById('root')!).render(<React.StrictMode>{window.location.pathname==='/app'||window.location.pathname.startsWith('/app/')?<App/>:<Website/>}<Toaster position="bottom-right" richColors closeButton/></React.StrictMode>);

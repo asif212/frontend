@@ -1,3 +1,4 @@
+import {compressImage} from './compressImage';
 // Keep the bearer token in memory. Reloading requires signing in again.
 let token = '';
 const base = (import.meta as unknown as {env: Record<string, string>}).env.VITE_API_URL || 'http://localhost:8000/api/v1';
@@ -34,4 +35,22 @@ export async function downloadAttachment(id:number,filename:string):Promise<void
   const response=await fetch(`${base}/attachments/${id}/download`,{headers:{Authorization:`Bearer ${token}`}});
   await checkResponse(response);
   const url=URL.createObjectURL(await response.blob());const link=document.createElement('a');link.href=url;link.download=filename;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
+export function websiteAsset(path:string):string {
+  if (!path.startsWith('/api/')) return path;
+  return new URL(base, window.location.origin).origin + path;
+}
+export async function replaceWebsiteImage<T>(slot:string,file:File):Promise<T> {
+  const body=new FormData();body.append('file',await compressImage(file));
+  const response=await fetch(`${base}/website/assets/${slot}`,{method:'POST',headers:{Authorization:`Bearer ${token}`},body});
+  await checkResponse(response);
+  return response.json();
+}
+
+export async function uploadPortfolioPhoto<T>(sectionId:string,file:File):Promise<T> {
+  const body=new FormData();body.append('file',await compressImage(file));
+  const response=await fetch(`${base}/website/portfolio/sections/${sectionId}/photos`,{method:'POST',headers:{Authorization:`Bearer ${token}`},body});
+  await checkResponse(response);
+  return response.json();
 }

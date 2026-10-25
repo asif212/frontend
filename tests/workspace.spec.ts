@@ -120,7 +120,7 @@ test('an expired session returns to sign-in with an explanation',async({page})=>
 
 test('sign-in offers password visibility and adapts to a narrow screen',async({page})=>{
   await page.route('https://fonts.googleapis.com/**',route=>route.abort());
-  await page.goto('/');
+  await page.goto('/app');
   await page.screenshot({path:test.info().outputPath('sign-in.png'),fullPage:true,animations:'disabled'});
   await page.getByLabel('Password',{exact:true}).fill('example-password');
   await page.getByRole('button',{name:'Show password'}).click();

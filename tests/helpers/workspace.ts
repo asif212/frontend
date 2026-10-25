@@ -43,7 +43,7 @@ export async function workspace(page:Page,{role='lead',taskCount=4,populated=fal
     else if(path==='/reports')response={tasks_by_status:{assigned:1,in_progress:1,blocked:1,done:1},overdue_tasks:0,attendance:[]};
     await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(response)});
   });
-  await page.goto('/');
+  await page.goto('/app');
   await page.getByLabel('Username',{exact:true}).fill('alex');
   await page.getByLabel('Password',{exact:true}).fill('example-password');
   await page.getByRole('button',{name:'Sign in to your workspace'}).click();

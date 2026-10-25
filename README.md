@@ -8,7 +8,7 @@ cp .env.example .env
 npm run dev
 ```
 
-Open http://localhost:5173. Start the backend on port 8000 and run its migrations first. Use the administrator account created with the backend CLI. Create teams and initial leads in the Teams UI. Leads can manage locations, employees/profiles, projects, issues, sprints, tasks, location holidays and leave policies. Members can collaborate on project issues, log work, attach files, clock in/out, request attendance corrections and submit full/half-day leave. Leads handle approvals and view reports/audit history.
+Open http://localhost:5173 for the public website, or http://localhost:5173/app for MyTime. Start the backend on port 8000 and run its migrations first. Use the administrator account created with the backend CLI. Create teams and initial leads in the Teams UI. Leads can manage locations, employees/profiles, projects, issues, sprints, tasks, location holidays and leave policies. Members can collaborate on project issues, log work, attach files, clock in/out, request attendance corrections and submit full/half-day leave. Leads handle approvals and view reports/audit history.
 
 ```sh
 npm run build
@@ -42,3 +42,19 @@ Browser tests use your installed Google Chrome (`channel: chrome`) and start/sto
 [Design previews](docs/UI_PREVIEW.md) use test fixture data; runtime screens always load your actual API data.
 
 Responsive checks now cover every lead view at 320, 390, 768 and 1024 pixels, plus narrow-phone admin/member forms, password changes, touch controls and landscape dialogs. All 17 browser tests pass. See [responsive coverage](docs/RESPONSIVENESS.md) for the tested scenarios.
+
+## Public website
+
+NialTech’s public pages are in `src/Website.tsx` and `src/website.css`. Super administrators can open **Website content** after signing in. Public text is persisted through `/api/v1/website`; homepage images have eight replaceable positions; portfolio galleries support any number of photos and nested sections. See [hosting and image limits](../deploy/README.md).
+
+The homepage uses a pinned hero with parallax imagery and a pinned portfolio sequence driven by native scrolling. Collection links remain clickable; reduced-motion preferences switch the sequence to a static gallery. Scroll behavior is in `src/ScrollEffects.tsx` and `src/scroll-effects.css`.
+
+## Search engine optimization
+
+`npm run build` now generates route-specific HTML for the homepage, portfolio index and every current portfolio section, together with sitemap.xml, robots.txt, and Hostinger/Apache .htaccess rules. Pages contain readable public headings, descriptions, gallery images and links before JavaScript runs. React keeps titles, canonical links, Open Graph/Twitter tags and organization/collection/breadcrumb JSON-LD synchronized with live content. MyTime's /app page is noindex and excluded from the sitemap; unknown public routes should return HTTP 404 in production.
+
+The canonical origin defaults to https://nial.in. For another deployment domain, set VITE_SITE_URL in the build environment (and use the same value in Vite). SEO_DATA_DIR defaults to ../backend/website_data; provide the current public content.json and portfolio.json there when building elsewhere. Only public fields are rendered; private Google tokens are never copied. VITE_API_URL, if specified in the build environment, also determines the origin for gallery images in generated HTML. Otherwise the production backend is assumed to be proxied under the same domain's /api path.
+
+After editing public content or adding/removing portfolio sections, rebuild and redeploy the frontend to refresh the initial HTML and sitemap. The running app still reads current content directly from the API. Upload the complete dist directory, including its hidden .htaccess file, and ensure the hosting server honors these rules. Existing WordPress service URLs redirect to their corresponding portfolio sections. Preserve real files/directories before any SPA fallback rules in the hosting configuration. No DNS or production hosting changes are made by building locally.
+
+Validation: `node scripts/check-seo.mjs` after a build, plus `npx playwright test tests/seo.spec.ts`. After deployment, submit https://nial.in/sitemap.xml to Google Search Console and inspect the published URLs. Search indexing and rankings depend on Google; local checks cannot confirm production indexing.

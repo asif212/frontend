@@ -1,0 +1,21 @@
+import {test,expect} from '@playwright/test';
+import content from './fixtures/website';
+test('public metadata follows portfolio routes and keeps the workspace out of search',async({page})=>{
+ await page.route('https://fonts.googleapis.com/**',r=>r.abort());
+ await page.route('**/api/v1/website',r=>r.fulfill({json:content}));
+ await page.route('**/api/v1/website/reviews',r=>r.fulfill({json:{status:'not_connected',reviews:[]}}));
+ await page.route('**/api/v1/website/portfolio',r=>r.fulfill({json:{sections:[{id:'graphic-design',title:'Graphic Design',description:'Design work from our studio.',parent_id:null,cover_id:null}],photos:[]}}));
+ await page.goto('/');
+ await expect(page).toHaveTitle(/Graphic Design, Photo Editing & Motion Graphics/);
+ await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href','https://nial.in/');
+ await page.goto('/portfolio/graphic-design');
+ await expect(page).toHaveTitle('Graphic Design Portfolio | NialTech');
+ await expect(page.locator('meta[name=description]')).toHaveAttribute('content','Design work from our studio.');
+ await expect(page.locator('link[rel=canonical]')).toHaveCount(1);
+ await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href','https://nial.in/portfolio/graphic-design');
+ expect(await page.locator('#site-structured-data').textContent()).toContain('BreadcrumbList');
+ await page.goto('/portfolio/missing');
+ await expect(page.locator('meta[name=robots]')).toHaveAttribute('content','noindex, nofollow');
+ await page.goto('/app');
+ await expect(page.locator('meta[name=robots]')).toHaveAttribute('content','noindex, nofollow');
+});

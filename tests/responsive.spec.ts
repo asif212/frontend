@@ -92,7 +92,7 @@ test('mandatory password change fits a narrow phone',async({page})=>{
   await page.setViewportSize({width:320,height:640});
   await page.route('https://fonts.googleapis.com/**',route=>route.abort());
   await page.route('**/api/v1/auth/login',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({access_token:'test',user:{id:2,name:'Taylor Kim',role:'member',must_change_password:true}})}));
-  await page.goto('/');await page.getByLabel('Username',{exact:true}).fill('taylor');await page.getByLabel('Password',{exact:true}).fill('temporary-password');
+  await page.goto('/app');await page.getByLabel('Username',{exact:true}).fill('taylor');await page.getByLabel('Password',{exact:true}).fill('temporary-password');
   await page.getByRole('button',{name:'Sign in to your workspace'}).click();
   await expect(page.getByRole('heading',{name:'Make it your own'})).toBeVisible();await fits(page,'Password change');
   await expect(page.getByLabel('New password',{exact:true})).toBeVisible();
