@@ -1,0 +1,986 @@
+{
+  "sections": [
+    {
+      "id": "graphic-design",
+      "title": "Graphic Design",
+      "description": "",
+      "parent_id": null,
+      "cover_id": "31e3405df3ca592fbe22d3b8db98e989"
+    },
+    {
+      "id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "title": "Logo Design",
+      "description": "",
+      "parent_id": "graphic-design",
+      "cover_id": "31e3405df3ca592fbe22d3b8db98e989"
+    },
+    {
+      "id": "a620b87e9cca5cc1aa353f473d57f453",
+      "title": "Poster | Banner | Stories | Brochure",
+      "description": "",
+      "parent_id": "graphic-design",
+      "cover_id": "cb6eb378aecb543e9b0476a2079b314f"
+    },
+    {
+      "id": "d2f86409de58513188d9bf56c0b08892",
+      "title": "Illustrations",
+      "description": "",
+      "parent_id": "graphic-design",
+      "cover_id": "03df630460c05932bc54455075ae6bbc"
+    },
+    {
+      "id": "photo-editing",
+      "title": "Photo Editing",
+      "description": "",
+      "parent_id": null,
+      "cover_id": "547f95b2e41857c6b3b4576f4cbc1f1a"
+    },
+    {
+      "id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "title": "Photoshop Works",
+      "description": "",
+      "parent_id": "photo-editing",
+      "cover_id": "547f95b2e41857c6b3b4576f4cbc1f1a"
+    },
+    {
+      "id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "title": "Color Grading",
+      "description": "",
+      "parent_id": "photo-editing",
+      "cover_id": "38683b70ff705afcaea1cecac90dc71c"
+    },
+    {
+      "id": "motion-graphics",
+      "title": "Motion Graphics",
+      "description": "",
+      "parent_id": null,
+      "cover_id": "5a2c947d17385165a787133822eb7291"
+    },
+    {
+      "id": "website-development",
+      "title": "Web Development",
+      "description": "",
+      "parent_id": null,
+      "cover_id": "0b41d61e4bce556385d1dd3d57d0a12e"
+    },
+    {
+      "id": "video-editing",
+      "title": "Video Editing",
+      "description": "",
+      "parent_id": null,
+      "cover_id": null
+    }
+  ],
+  "photos": [
+    {
+      "id": "31e3405df3ca592fbe22d3b8db98e989",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "TrendyZen-BG"
+    },
+    {
+      "id": "b8ca51b9745e5e5e972cf73dff99d6e2",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "UpToTheSky"
+    },
+    {
+      "id": "5a5454d1823f5e9d9476ed531b8e886e",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "SPC-International"
+    },
+    {
+      "id": "b8d63e01844557d9add2923d27f70fba",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "Snapex"
+    },
+    {
+      "id": "410adc1f1b6d54619036c3994b25f8e4",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "Shake-&-Bake"
+    },
+    {
+      "id": "efb354f833e55d6ab183f32a2b86ca98",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "Pharm24x7"
+    },
+    {
+      "id": "e5f54b0270a75232838741844474df89",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "NirishaVisionFilms"
+    },
+    {
+      "id": "1689274b3b1155ffa7737c5260d7aab7",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "NialTech"
+    },
+    {
+      "id": "716d03e9a7a95f75bc346a0cc76f7848",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "MohitGoel-2"
+    },
+    {
+      "id": "88c5cc83efbc53bd95f9ce8f2cbc575a",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "MohitGoel"
+    },
+    {
+      "id": "ede6f1b6ef665e28ad8f0ea81f13c948",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "MangnoBiz"
+    },
+    {
+      "id": "b59398ffe2fb52cf9fbd21afb673e4d4",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "Kunal-Khurana"
+    },
+    {
+      "id": "87823857fcc05b7aab5ecfb26e87518a",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "Kaamyaab-life"
+    },
+    {
+      "id": "2d301045ed6055d180c923bede20114d",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "Irankingz"
+    },
+    {
+      "id": "477cea0793f05524a36f756c15e65585",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "Infinite-Memories"
+    },
+    {
+      "id": "7e6be76873175dfb9e7157b7faa90aa4",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "Logo Design"
+    },
+    {
+      "id": "94bcf9727f0c576facbe2f1949d106c1",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "Engross-2"
+    },
+    {
+      "id": "f39c7a7967155a969d96a3b6aa6b085a",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "Engross"
+    },
+    {
+      "id": "809531a8b3055f63b6220d4fd932b08d",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "Endive"
+    },
+    {
+      "id": "16b6ae85f3f655d0b47905f66d0cb7f0",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "Emblem-logo"
+    },
+    {
+      "id": "4a074cab788b57d988bc352e13c813e1",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "Dryxo"
+    },
+    {
+      "id": "75801d934636554aaf55a960b2ee0c23",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "BLR-Booking"
+    },
+    {
+      "id": "41ab3e9dabe35f9091cb614171a1fa68",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "Logo Design"
+    },
+    {
+      "id": "aa58fd3a21d650bfad58b33ec9bff56e",
+      "section_id": "d8a49be95b345f7ea17f8d381ee40d19",
+      "name": "Fashion logo"
+    },
+    {
+      "id": "cb6eb378aecb543e9b0476a2079b314f",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "Motion-Blur-3"
+    },
+    {
+      "id": "2746106bf4b7572b8e9ed446d11ecd8c",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "pakage-2"
+    },
+    {
+      "id": "bce9e52e96835d6f8fc9c125a9d9f606",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "Phoolwati-mustard-oil-poster--map"
+    },
+    {
+      "id": "864052d9e4df5cbd8762e5399785c0d3",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "Poster-1"
+    },
+    {
+      "id": "04389586440f5616ac6ecb820010a4d9",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "postr"
+    },
+    {
+      "id": "56d446267c795d6881731e6e95648691",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "Pyar Tumse"
+    },
+    {
+      "id": "b69f79c5bd06559894cfa83ca5f32791",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "restro-menu-crd-2"
+    },
+    {
+      "id": "0a4ddb6c6c6a5ecc8959b3cf038db449",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "social-post-1"
+    },
+    {
+      "id": "351c6370191353a3bcb5d7f0185486a9",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "social-post-final"
+    },
+    {
+      "id": "72656c74afbd5b77bb904334b949a74d",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "song-poster"
+    },
+    {
+      "id": "237d1aaee35e5328b5658239203044a5",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "sticker-label-2"
+    },
+    {
+      "id": "68770e76667e5bcc907d46880b9ea417",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "Thumbnail"
+    },
+    {
+      "id": "dda631fd4be85cb38ea5210ad82f61f7",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "Umrah-post-4"
+    },
+    {
+      "id": "a143affa0a74523e9bc436a028c8b682",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "Visa-with-pic-2"
+    },
+    {
+      "id": "268b1ed1411b50419aeae0faad57a39e",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "2 line"
+    },
+    {
+      "id": "cf610e3ed74452aa8991cf89ae5e7d71",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "3"
+    },
+    {
+      "id": "0ef645c4ea4b5e689594c670c7c4dc18",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "AKRITI MOHIT 2"
+    },
+    {
+      "id": "2432c90e7bec51d8874c3896820dba20",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "AKRITI MOHIT"
+    },
+    {
+      "id": "61ebda2e6bf15111a5b5a094e0dd0928",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "EID-INSTA"
+    },
+    {
+      "id": "e8d01ad554c95c70b3a3357d4fb61da1",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "flat-design-all"
+    },
+    {
+      "id": "e08dc0beb6295f50ad86a17e86d67161",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "iconography-thumbnail"
+    },
+    {
+      "id": "47c6db979d9d538b9abd94050e068c01",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "insta-1"
+    },
+    {
+      "id": "b5440277f64f5561ad5a7186ca83e9ce",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "insta-2"
+    },
+    {
+      "id": "55f9e6914f4d56ce8efb4be33122162b",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "Insta-post"
+    },
+    {
+      "id": "fffcc16207f95c02b4e2627420dda629",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "burger-poster"
+    },
+    {
+      "id": "6093a57bccf35e2ea1b0ff789b2b0e76",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "INSTA-STORY-==="
+    },
+    {
+      "id": "171c510f5324520892592378e794a664",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "the-market-hub-poster"
+    },
+    {
+      "id": "b0ad53973e99535bbf55f6617b995d75",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "torn-social-media"
+    },
+    {
+      "id": "a7fc896677b0510dab5c149cf7fdcbaa",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "1"
+    },
+    {
+      "id": "4d87852d05575ecea18a30126b78fd32",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "AKRITI-MOHIT-5+"
+    },
+    {
+      "id": "540485bee7495db39148afe521f64f8b",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "AKRITI-MOHIT-6-2"
+    },
+    {
+      "id": "f65d5909f64d55c2b67f0b5b9a325c20",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "AKRITI-MOHIT-7"
+    },
+    {
+      "id": "2d59ccc20b7751fc8f22ed2e8c5cc70e",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "AKRITI-MOHIT-8"
+    },
+    {
+      "id": "208401556a0d549ca7a9cbdd2af9b45d",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "AKRITI-MOHIT-10"
+    },
+    {
+      "id": "149f7d387edc55e9bb3015b96c5d48d0",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "AKRITI-MOHIT-11"
+    },
+    {
+      "id": "723417a51d8658a6a06dadb6c4b21bf5",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "AKRITI-MOHIT-12"
+    },
+    {
+      "id": "339b1eed50c35d84aeebc4b69e574be3",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "banner-1"
+    },
+    {
+      "id": "b9bb4b55447b57fd9258cee74173cb29",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "How-is-Virtual-Reality-and-Augmented-Reality-Changing-the-World-of-Gaming"
+    },
+    {
+      "id": "f709144c4b665c93807a377f7aa62589",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "Gradient-cup"
+    },
+    {
+      "id": "53fdbfd91d555f6eb375f0fea99c5358",
+      "section_id": "a620b87e9cca5cc1aa353f473d57f453",
+      "name": "Batch-1"
+    },
+    {
+      "id": "03df630460c05932bc54455075ae6bbc",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Planning-a-content-calendar-for-your-social-media-Here-is-a-list-of-few-items-you-must-not-miss"
+    },
+    {
+      "id": "98400125e2125eaeb48dc0329c627151",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "seo 2"
+    },
+    {
+      "id": "fd0973a2d6ea5cf581718cc5ff074d7a",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "seo"
+    },
+    {
+      "id": "e6f713972d0d5f4a8f6fa3bf62fa9cfd",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "software 1"
+    },
+    {
+      "id": "1fe5ef5315bc5c89812b86d57ea0b273",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "software"
+    },
+    {
+      "id": "fb9eb98a5b5d5ac5a2f37a63d5c804dd",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Telephone illustration"
+    },
+    {
+      "id": "c77351e13a37503ca29061abe715a6ad",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "vector people"
+    },
+    {
+      "id": "74ece83c0bbc5d9582f476fe29547707",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "What-are-the-different-stages-of-gaming-app-development"
+    },
+    {
+      "id": "1bea1947497853dca10d430517d7aef8",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "What-are-the-Services-Offered-by-Resource-Augmentation-Companies-in-India"
+    },
+    {
+      "id": "607b6727685a5a19a2d05c3f4b1b0c11",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "What-is-an-E-commerce-Payment-Gateway-Types,-Process,-and-Significance"
+    },
+    {
+      "id": "51afdc1c0367530aac08086d47ce8b44",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "What-is-the-cost-of-developing-a-mobile-gaming-app"
+    },
+    {
+      "id": "bc5e06d2870d525d954c54705da40531",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Why-is-digital-marketing-important-for-my-traditional-business-"
+    },
+    {
+      "id": "01d66290008c51f7861a7ce624386839",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Your-go-to-guide-for-outsourcing-your-UI-UX-Designing-projects---2"
+    },
+    {
+      "id": "9dda65deae3a5465b70bad91df3cbd61",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "7-Ways-to-Use-Social-Media-for-Market-Research"
+    },
+    {
+      "id": "4be47897343651c09e5156383bf8a319",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "10-Important-Skills-a-Social-Media-Manager-Must-Have"
+    },
+    {
+      "id": "624dc0814c9753b6960da5b580ffe5e7",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "A-comprehensive-guide-for-creating-your-social-media-management-strategy"
+    },
+    {
+      "id": "522f2f83bf975914aab8892f32808d7e",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Beginner's-guide-to-Infrastructure-Management-Services"
+    },
+    {
+      "id": "c644d425bb6058279f5edb921b7890b9",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "cities illustration"
+    },
+    {
+      "id": "a8fc60940cb15e479b008ec37fcadfef",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Disadvantages-of-hiring-freelance-web-developers-for-your-web-development-project"
+    },
+    {
+      "id": "d51e2b24f72250719f782542c4f7ec29",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "does-influencer-marketing-really-work-10-facts-you-should-know"
+    },
+    {
+      "id": "9fd674c74db25c79ba504e5732bf4f33",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "ecom"
+    },
+    {
+      "id": "60bd9c0b5c265c5d90e15d66958956f6",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "ecommerce"
+    },
+    {
+      "id": "c667f7b90ed757a18d66477f61a5e0af",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "edtech illustration"
+    },
+    {
+      "id": "a58fc01ce54754ca9977a8c9ff9c6688",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "erp illustration"
+    },
+    {
+      "id": "f856e96301fb562d97ff170c4aed3708",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Face illustrations"
+    },
+    {
+      "id": "5447ff82de8053a3ae0f7d15f685c469",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Healthcare-marketing-ethics-for-launching-a-digital-marketing-campaign"
+    },
+    {
+      "id": "eadc457a69e45efc95933a1757c32d1f",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Here-is-all-the-difference-you-need-to-know-between-HRIS,-HRMS-and-HCM-software"
+    },
+    {
+      "id": "3a15dab647b95de49de5b002b2cfd43c",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "How-much-does-it-cost-to-get-video-ads-created"
+    },
+    {
+      "id": "9037d784e47b586a87603d88cc2283c9",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "How-to-execute-your-business-idea-effectively--Game-Plan-for-a-Prospective-Entrepreneur"
+    },
+    {
+      "id": "e207176a4c6a526e803fce52a75bfc06",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "How-to-Find-a-Reliable-Video-Advertising-Company-in-India"
+    },
+    {
+      "id": "3eaf88de0fb75812b3d70f479f328ba8",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Impact-of-digital-marketing-in-the-fashion-industry"
+    },
+    {
+      "id": "06637c688ce657cda02e5863b6430fe2",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Important-digital-marketing-tips-for-doctors-in-2023"
+    },
+    {
+      "id": "dd1602c5abbe5dd7b8b0b97d2a5e8ac2",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Is-Amazon-ecommerce-or-marketplace-platform-Explained"
+    },
+    {
+      "id": "27450d1baa84502cbded72c3af5cc2c8",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Lessons-to-learn-from-best-influencer-marketing-campaigns-of-India"
+    },
+    {
+      "id": "10e3a877ec8c5ff097cb32f2a34c9ed7",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Marketing"
+    },
+    {
+      "id": "7acfae11c23c5729acad0ad37f010a60",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "blog writing"
+    },
+    {
+      "id": "17ad9e0e63b75a38a9de7cafb2fbb0c9",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "not satisfied with project"
+    },
+    {
+      "id": "61540cc6b7a55da08549a6cc3496bd71",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "model"
+    },
+    {
+      "id": "583ad9ecde18562a9862d2b244256a5a",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Important-digital-marketing-communication-tools-your-business-must-choose-in-2023"
+    },
+    {
+      "id": "680f96ac4b235c7cb12dbea8e1fd5d50",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Importance-of-Call-to-action-in-Display-Advertising-Steps-for-creating-one"
+    },
+    {
+      "id": "ba8e86286eca5000b245da17aec1a75f",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "How-to-Track-the-Success-of-an-Influencer-Marketing-Campaign"
+    },
+    {
+      "id": "c07ed2b4fbc6560194d2f88c618d953f",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "how-to-find-top-influencer-marketing-agencies-in-India"
+    },
+    {
+      "id": "0fe12426dd725ae98bdeb9c2610968c9",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "How-much-does-website-development-cost"
+    },
+    {
+      "id": "ba2b52aaea145ac7a1d1f96153fcc699",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "How-Does-E-commerce-Marketplace-Model-Work-How-Can-It-Benefit-My-Business"
+    },
+    {
+      "id": "b4892d7cddff5b46af08e1cd2d9fc693",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Common-mistakes-while-outsourcing-web-development-project-"
+    },
+    {
+      "id": "9b53c42771bf51e1bd92081802ec225c",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "blockchain illustration"
+    },
+    {
+      "id": "7e13171850c650219871bafb40ec1687",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "architecture illustration"
+    },
+    {
+      "id": "5bdf07ee42e85d0cb3f208c1554290d4",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "15-effective-ways-of-using-Instagram-stories-for-your-business"
+    },
+    {
+      "id": "249ff475906553239fdee24b03f3bd7c",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "testimonial illustration"
+    },
+    {
+      "id": "c4db8808cac25ed38383c0bce659b426",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "contact us"
+    },
+    {
+      "id": "61212defadec5297917bae9ae119c803",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "hero img"
+    },
+    {
+      "id": "c7ad37a705fb5f808a0a477a1d3664e6",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "ecommerce"
+    },
+    {
+      "id": "ff83e7ffc07058c8939ec3371fbc5b62",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "software"
+    },
+    {
+      "id": "f7bf4fca24d859e0b653fc1a31d97765",
+      "section_id": "d2f86409de58513188d9bf56c0b08892",
+      "name": "Asset 2"
+    },
+    {
+      "id": "547f95b2e41857c6b3b4576f4cbc1f1a",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "SAG09581-BW"
+    },
+    {
+      "id": "7fa093f797625544ab60ed4c060e6da4",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "SAG09581"
+    },
+    {
+      "id": "58edf763754255fca3013dcf20cc72a4",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "SAG09063-2"
+    },
+    {
+      "id": "c6a0d5bb44225d3b98b0c812902a2a13",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "SAG09063 color"
+    },
+    {
+      "id": "653bb15010fc5eaeb645e707e1c5923a",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "manipulated pic sample"
+    },
+    {
+      "id": "1051d69f5eb2511ebef57aadd2b06110",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "JAI_2007"
+    },
+    {
+      "id": "74d98e480a50557cadc62df5fb92f783",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "JAI_0132"
+    },
+    {
+      "id": "cad63523900750cdb8985cd16c18945b",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "DSCF8232-2"
+    },
+    {
+      "id": "1341b56633885c1692f4703670e1ce63",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "DSCF4122-2"
+    },
+    {
+      "id": "dea048a2d7095442bce3f5b733ca46cd",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "DSCF4120-2"
+    },
+    {
+      "id": "1006d2768da85729861545dc983787b2",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "DSCF4115-2"
+    },
+    {
+      "id": "1108c80acac55c90b449085b5bbc6d20",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "DSCF2925 3ple xposer"
+    },
+    {
+      "id": "0da14c88acb05e179f76a7d0d8f4fddf",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "CM 1"
+    },
+    {
+      "id": "740e79c6260959f4a39cdc77684e5712",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "drishti"
+    },
+    {
+      "id": "5f45e1814c205d31aab0a3d59efbd253",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "akansha red"
+    },
+    {
+      "id": "8efd9ac981225ea1ae92e31044f3e14f",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "AIM00954"
+    },
+    {
+      "id": "7f6e13214f8b5db5b296af90c076a14b",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "4L2A9993-200-with-logo"
+    },
+    {
+      "id": "b2c41882fa885741a236ff6e59510260",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "4L2A9993-200-BW-with-logo"
+    },
+    {
+      "id": "37debc9017d252da926584b605aeb02d",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "3"
+    },
+    {
+      "id": "8f2c1e363d49563687e37836343b3344",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "0U4A8853"
+    },
+    {
+      "id": "02d3d0fbd0105826ac6633781d62ae0c",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "4L2A9993-200-BW-with-logo"
+    },
+    {
+      "id": "9828fa4ef0b75e8494c95307c28c8fd2",
+      "section_id": "8f70a0627bb550ca88d9605d181d3d6b",
+      "name": "SAG09581-2"
+    },
+    {
+      "id": "38683b70ff705afcaea1cecac90dc71c",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A2997"
+    },
+    {
+      "id": "f9965e0b39965f2681c9b1c0c6077bde",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A3263"
+    },
+    {
+      "id": "79ebfde2dd465f0a8e509a9569813639",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A3121"
+    },
+    {
+      "id": "cf786275576251e3b749c140f29c8c5e",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A3021"
+    },
+    {
+      "id": "85169447ae465d2095e01259fcda833c",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A9029"
+    },
+    {
+      "id": "e1baee3011fd5a1abdd787c682cb9ae5",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A8467"
+    },
+    {
+      "id": "6809c1820e395a26b1abe0d7b470a7df",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A7966"
+    },
+    {
+      "id": "d8b6ff14a389565da50e40630b5e8984",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A6675-2"
+    },
+    {
+      "id": "d2c6eacc8444566e9e02a41ff3860e6c",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A5719-2"
+    },
+    {
+      "id": "1b6703423aa1517188f3577c928d37cf",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A5474"
+    },
+    {
+      "id": "fbf4bc983ba15b54a2da591c05dc3d8d",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A5262"
+    },
+    {
+      "id": "3d763daf67b05eb0b4c72b1f7015ea6c",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A5236"
+    },
+    {
+      "id": "320278c470f05469b6d479f42fa0f6e5",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A4373"
+    },
+    {
+      "id": "b753ac0a20e759998a4e5679086213d2",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A4352"
+    },
+    {
+      "id": "6cd9ca19eb815b2ca41faf8037189e4e",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A4288"
+    },
+    {
+      "id": "0b2f773466b25b49a0f46385345e6736",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A3980"
+    },
+    {
+      "id": "116bcb9bf91a5e0da60b741b3d19a50e",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A3867"
+    },
+    {
+      "id": "f6e58063fd855009938980a3155b6244",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A3460"
+    },
+    {
+      "id": "bd2c5935237b54299dc7948f8f836aec",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A3229"
+    },
+    {
+      "id": "cdf02c6b5dc45c848b2cf24d893fcdb8",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "EN3A1620-2"
+    },
+    {
+      "id": "59fffd3a66b95c80bb8b7b144a686ad1",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "DSC08659-2"
+    },
+    {
+      "id": "62edfe19945f5229b79ddfce834f5391",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "DSC02610-2"
+    },
+    {
+      "id": "fa45fb72a9a95a58995c9d50a1a8505c",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "DSC02608-2"
+    },
+    {
+      "id": "2896696ab495551abfe78f991934df2f",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "AF2I9646"
+    },
+    {
+      "id": "7759540cda5c5a5aa12bf7faddf5f038",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "4O0A3853"
+    },
+    {
+      "id": "b1788872db215526b8e46fb086eddb73",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "4O0A3791-2"
+    },
+    {
+      "id": "974541e11ba05eb1a8f78a4f8a022426",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "0E6A7568"
+    },
+    {
+      "id": "5dee044fd5a45f458160778c83cdbcbb",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "0C7A0444"
+    },
+    {
+      "id": "a6c062be49205e80b1cb92b82930be28",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "_Q8A2538"
+    },
+    {
+      "id": "71796ba293ad5bae85b378467c1ff5a6",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "_N3A9766"
+    },
+    {
+      "id": "77c16b85a58b53b0aafed51af8c41fb5",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "_N3A9587-2"
+    },
+    {
+      "id": "f0079a75db945934982335ff00a1b500",
+      "section_id": "9a6c54278a3c558c9ec1cdd145a4d85c",
+      "name": "_N3A9469"
+    },
+    {
+      "id": "5a2c947d17385165a787133822eb7291",
+      "section_id": "motion-graphics",
+      "name": "software-dev-gif"
+    },
+    {
+      "id": "6795df5bb38f5ce1b7250845caa1fd98",
+      "section_id": "motion-graphics",
+      "name": "blockchain-2"
+    },
+    {
+      "id": "c9cc0a2c9c8a50b4b7b227d2c4f36a83",
+      "section_id": "motion-graphics",
+      "name": "blockchain-4-gif"
+    },
+    {
+      "id": "e1ec66e4e5e856f3a45abfe3c6968292",
+      "section_id": "motion-graphics",
+      "name": "blockchain-5"
+    },
+    {
+      "id": "b848f860f79b5f80a5cfa203f499aef8",
+      "section_id": "motion-graphics",
+      "name": "ERP-2"
+    },
+    {
+      "id": "f7f75f5ef3be5559aad02166f91bfc8d",
+      "section_id": "motion-graphics",
+      "name": "performance-marketing-3"
+    },
+    {
+      "id": "f22ddb748d295b84bd029c5539a8b8e4",
+      "section_id": "motion-graphics",
+      "name": "SEO-20-oct"
+    },
+    {
+      "id": "53c79c7075c5555a9f4d7fcd2247e824",
+      "section_id": "motion-graphics",
+      "name": "social-media-3"
+    },
+    {
+      "id": "0b41d61e4bce556385d1dd3d57d0a12e",
+      "section_id": "website-development",
+      "name": "software-dev-gif"
+    },
+    {
+      "id": "80701334aa544853a0e2a566b695c96a",
+      "section_id": "website-development",
+      "name": "jonakoh-_-qY-XlCf9Zs4-unsplash.webp"
+    }
+  ]
+}

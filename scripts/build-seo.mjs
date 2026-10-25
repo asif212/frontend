@@ -4,10 +4,10 @@ import {resolve} from 'node:path';
 import {loadEnv} from 'vite';
 const env={...loadEnv('production',process.cwd(),''),...process.env};
 const origin=new URL(env.VITE_SITE_URL||'https://nial.in').origin;
-const dataDir=resolve(env.SEO_DATA_DIR||'../backend/website_data');
+const dataDir=resolve(env.SEO_DATA_DIR||'./seo-data');
 const read=async name=>JSON.parse(await readFile(resolve(dataDir,name),'utf8'));
 let content,portfolio;
-try{[content,portfolio]=await Promise.all([read('content.json'),read('portfolio.json')]);}catch{throw Error('SEO build requires public content.json and portfolio.json. Set SEO_DATA_DIR to the website data directory.');}
+try{[content,portfolio]=await Promise.all([read('content.json'),read('portfolio.json')]);}catch{throw Error('SEO build requires public content.json and portfolio.json. Restore the committed seo-data snapshots or set SEO_DATA_DIR to a public snapshot directory.');}
 const template=await readFile('dist/index.html','utf8');
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const brand=content.brand||'NialTech';

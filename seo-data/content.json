@@ -1,0 +1,45 @@
+{
+  "brand": "NialTech",
+  "hero_title": "Good stories deserve\na different perspective.",
+  "hero_text": "Design. Imagery. Motion. Digital experiences with a little more feeling.",
+  "whatsapp": "917909058028",
+  "services": [
+    "Graphic design",
+    "Photo editing",
+    "Motion graphics",
+    "Web development",
+    "Video editing"
+  ],
+  "sections": [
+    {
+      "id": "about",
+      "title": "A little imagination.\nA lasting impression.",
+      "text": "We bring design, imagery and technology together. From the first idea to the final frame, our focus is on thoughtful details and work that feels unmistakably yours.",
+      "visible": true
+    },
+    {
+      "id": "work",
+      "title": "Made to be remembered.",
+      "text": "A place for our visual explorations, projects and the ideas behind them.",
+      "visible": true
+    },
+    {
+      "id": "films",
+      "title": "Every frame has a feeling.",
+      "text": "Motion graphics, films and edits that give an idea a life of its own.",
+      "visible": true
+    },
+    {
+      "id": "services",
+      "title": "One idea.\nMany possibilities.",
+      "text": "From a fresh visual identity to a considered digital presence, find the right creative direction for your next chapter.",
+      "visible": true
+    },
+    {
+      "id": "contact",
+      "title": "Your next chapter\nstarts with a hello.",
+      "text": "Have an idea, a brief, or just a question? We’d love to hear what you have in mind.",
+      "visible": true
+    }
+  ]
+}
