@@ -1,4 +1,4 @@
-import {setSeo,siteUrl,organization} from './seo';
+import {setSeo,siteUrl,organization,contactTitle,contactDescription} from './seo';
 import {GoogleReviews,GoogleReviewsAdmin} from './GoogleReviews';
 import {useEffect,useState,type CSSProperties} from 'react';
 import {ArrowUpRight,ArrowDown,Play,Menu,X,ArrowLeft,Save,Upload,ExternalLink,MapPin,Sun,Moon,Phone} from 'lucide-react';
@@ -28,7 +28,20 @@ export function Website(){
  useEffect(()=>{if(!menu)return;const close=(event:KeyboardEvent)=>{if(event.key==='Escape'){setMenu(false);document.querySelector<HTMLButtonElement>('.site-menu-button')?.focus();}};window.addEventListener('keydown',close);return()=>window.removeEventListener('keydown',close);},[menu]);
  async function load(){try{setError('');setContent(await api<WebsiteContent>('/website'));}catch(e){setError(errorMessage(e));}}
  useEffect(()=>{void load();},[]);
- useEffect(()=>{if(!content||window.location.pathname.startsWith('/portfolio'))return;setSeo({title:`${content.brand} | Graphic Design, Photo Editing & Motion Graphics`,description:`${content.brand} brings graphic design, photo editing, motion graphics, video editing and web development together. Explore our portfolio and get in touch.`,schema:[{...organization,name:content.brand,telephone:'+'+(content.whatsapp||'917909058028')},{'@type':'WebSite','@id':siteUrl+'/#website',url:siteUrl+'/',name:content.brand,publisher:{'@id':siteUrl+'/#organization'}}]});},[content]);
+ useEffect(()=>{
+    if(!content||window.location.pathname.startsWith('/portfolio'))return;
+    // /contact is a real, indexable page: same site, its own title/canonical/structured data, scrolled to the contact section.
+    const contactPage=window.location.pathname.replace(/\/+$/,'')==='/contact';
+    const telephone='+'+(content.whatsapp||'917909058028');
+    const org={...organization,name:content.brand,telephone,...(content.email?{email:content.email}:{}),contactPoint:[{...organization.contactPoint[0],telephone,url:`https://wa.me/${content.whatsapp||'917909058028'}`,...(content.email?{email:content.email}:{})}]};
+    setSeo({
+      title:contactPage?contactTitle(content.brand):`${content.brand} | Graphic Design, Photo Editing & Motion Graphics`,
+      description:contactPage?contactDescription(content.brand):`${content.brand} brings graphic design, photo editing, motion graphics, video editing and web development together. Explore our portfolio and get in touch.`,
+      path:contactPage?'/contact':'/',
+      schema:[org,contactPage?{'@type':'ContactPage',url:siteUrl+'/contact',name:contactTitle(content.brand),about:{'@id':siteUrl+'/#organization'}}:{'@type':'WebSite','@id':siteUrl+'/#website',url:siteUrl+'/',name:content.brand,publisher:{'@id':siteUrl+'/#organization'}}]
+    });
+    if(contactPage)document.getElementById('contact')?.scrollIntoView();
+  },[content]);
  if(!content)return <div className="site-loading"><a href="/app">Sign in to MyTime <ArrowUpRight size={16}/></a>{error?<><p role="alert">{error}</p><button onClick={()=>void load()}>Try again</button></>:<p>Opening a new perspective…</p>}</div>;
  const c=content;
  const sections=Object.fromEntries(c.sections.map(s=>[s.id,s]));
