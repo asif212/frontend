@@ -44,7 +44,7 @@ test.describe('production build',()=>{
     expect(html).toContain('href="tel:+917909058028"');
     const graph=jsonLd(html);expect(graph.map(n=>n['@type'])).toEqual(expect.arrayContaining(['Organization','ContactPage','BreadcrumbList']));
     const sitemap=read('sitemap.xml');expect(sitemap).toContain('<loc>https://nial.in/contact</loc>');
-    expect(sitemap.match(/<loc>/g)!.length).toBe(13);
+    expect(sitemap.match(/<loc>/g)!.length).toBe(14);expect(sitemap).toContain('<loc>https://nial.in/about</loc>');
     for(const u of ['https://nial.in/','https://nial.in/portfolio','https://nial.in/portfolio/graphic-design'])expect(sitemap).toContain(`<loc>${u}</loc>`);
     expect(sitemap).not.toContain('/app');
     expect(read('app/index.html')).toContain('noindex, nofollow');
@@ -54,10 +54,40 @@ test.describe('production build',()=>{
   test('.htaccess: one canonical host, old WordPress URLs redirect, no noindex header',()=>{
     const h=read('.htaccess');
     expect(h).toContain('RewriteCond %{HTTP_HOST} ^www\\.nial\\.in$ [NC]');expect(h).toContain('RewriteRule ^ https://nial.in%{REQUEST_URI} [R=301,L]');
-    for(const rule of ['^mytime(?:/.*)?$ /app','^(?:about|about-us|home)/?$ / [R=301,L]','^services/?$ /#services [NE,R=301,L]','^contact-us/?$ /contact','^(?:work|our-work|portfolio-2|gallery)/?$ /portfolio','^graphic-design/?$ /portfolio/graphic-design'])expect(h,rule).toContain(rule);
+    for(const rule of ['^mytime(?:/.*)?$ /app','^home/?$ / [R=301,L]','^about-us/?$ /about [R=301,L]','^services/?$ /#services [NE,R=301,L]','^contact-us/?$ /contact','^(?:work|our-work|portfolio-2|gallery)/?$ /portfolio','^graphic-design/?$ /portfolio/graphic-design'])expect(h,rule).toContain(rule);
     expect(h).not.toContain('X-Robots-Tag');
     // redirect targets must exist in the build
-    for(const target of ['contact/index.html','portfolio/index.html','portfolio/graphic-design/index.html','app/index.html'])expect(existsSync(join(dist,target)),target).toBe(true);
+    for(const target of ['about/index.html','contact/index.html','portfolio/index.html','portfolio/graphic-design/index.html','app/index.html'])expect(existsSync(join(dist,target)),target).toBe(true);
+  });
+});
+
+test.describe('brand and name signals',()=>{
+  test.beforeAll(()=>{build();});
+  test('Organization/WebSite declare Nial Tech, Nial and nial.in as alternate names; Nayyer Ali is a linked Person',()=>{
+    for(const page of ['index.html','about/index.html','contact/index.html']){
+      const graph=jsonLd(read(page));
+      const org=graph.find(n=>n['@type']==='Organization') as Record<string,any>;
+      expect(org.name).toBe('NialTech');expect(org.alternateName).toEqual(['Nial Tech','Nial','nial.in']);
+      expect(org.founder).toEqual({'@id':'https://nial.in/#person'});
+      const person=graph.find(n=>n['@type']==='Person') as Record<string,any>;
+      expect(person).toMatchObject({name:'Nayyer Ali',url:'https://nial.in/about'});expect(person.sameAs).toContain('https://www.instagram.com/nayyer.ali1/');
+    }
+    const site=jsonLd(read('index.html')).find(n=>n['@type']==='WebSite') as Record<string,any>;
+    expect(site).toMatchObject({name:'NialTech',alternateName:['Nial Tech','Nial','nial.in'],url:'https://nial.in/'});
+  });
+  test('/about is an indexable page about NialTech and Nayyer Ali, linked from the homepage and nav',()=>{
+    const html=read('about/index.html');
+    expect(html).toMatch(/<title>About NialTech \(Nial Tech\) and Nayyer Ali \|/);
+    expect(html).toContain('<h1>About NialTech and Nayyer Ali</h1>');
+    expect(html).toContain('<link rel="canonical" href="https://nial.in/about">');
+    expect(meta(html,'robots')).toBe('index, follow, max-image-preview:large');
+    for(const name of ['Nial Tech','nial.in','Nayyer Ali'])expect(html,name).toContain(name);
+    expect(jsonLd(html).map(n=>n['@type'])).toEqual(expect.arrayContaining(['AboutPage','BreadcrumbList','Person']));
+    const home=read('index.html');expect(home).toContain('href="/about"');expect(home).toContain('Nayyer Ali');expect(home).toContain('Nial Tech');
+  });
+  test('every name variant appears in visible text a crawler can read on the homepage',()=>{
+    const text=read('index.html').replace(/<script[\s\S]*?<\/script>/g,' ').replace(/<[^>]+>/g,' ');
+    for(const name of ['NialTech','Nial Tech','nial.in','Nayyer Ali'])expect(text,name).toContain(name);
   });
 });
 
@@ -107,6 +137,15 @@ test.describe('in the browser',()=>{
     expect(graph.map(n=>n['@type'])).toEqual(expect.arrayContaining(['Organization','ContactPage']));
     await expect(page.locator('#contact')).toBeVisible();
     await expect(page.locator('a[href="tel:+917909058028"]').first()).toBeVisible();
+  });
+  test('/about keeps its own title, canonical and AboutPage data once the app has rendered',async({page})=>{
+    await open(page,'/about/');
+    expect(await page.title()).toMatch(/^About NialTech \(Nial Tech\) and Nayyer Ali \|/);
+    expect(await page.locator('link[rel=canonical]').getAttribute('href')).toBe('https://nial.in/about');
+    const graph=JSON.parse(await page.locator('#site-structured-data').innerText())['@graph'] as Record<string,any>[];
+    expect(graph.map(n=>n['@type'])).toEqual(expect.arrayContaining(['Organization','Person','AboutPage']));
+    expect(graph.find(n=>n['@type']==='Organization')!.alternateName).toContain('Nial Tech');
+    await expect(page.locator('.site-footer-identity')).toContainText('Nayyer Ali');
   });
   test('the homepage still canonicalises to / after rendering',async({page})=>{
     await open(page,'/');

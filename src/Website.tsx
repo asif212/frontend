@@ -1,4 +1,4 @@
-import {setSeo,siteUrl,organization,contactTitle,contactDescription} from './seo';
+import {setSeo,siteUrl,organization,person,alternateNames,aboutTitle,aboutDescription,contactTitle,contactDescription} from './seo';
 import {GoogleReviews,GoogleReviewsAdmin} from './GoogleReviews';
 import {useEffect,useState,type CSSProperties} from 'react';
 import {ArrowUpRight,ArrowDown,Play,Menu,X,ArrowLeft,Save,Upload,ExternalLink,MapPin,Sun,Moon,Phone} from 'lucide-react';
@@ -31,16 +31,17 @@ export function Website(){
  useEffect(()=>{
     if(!content||window.location.pathname.startsWith('/portfolio'))return;
     // /contact is a real, indexable page: same site, its own title/canonical/structured data, scrolled to the contact section.
-    const contactPage=window.location.pathname.replace(/\/+$/,'')==='/contact';
+    const here=window.location.pathname.replace(/\/+$/,'');const contactPage=here==='/contact',aboutPage=here==='/about';
     const telephone='+'+(content.whatsapp||'917909058028');
     const org={...organization,name:content.brand,telephone,...(content.email?{email:content.email}:{}),contactPoint:[{...organization.contactPoint[0],telephone,url:`https://wa.me/${content.whatsapp||'917909058028'}`,...(content.email?{email:content.email}:{})}]};
     setSeo({
-      title:contactPage?contactTitle(content.brand):`${content.brand} | Graphic Design, Photo Editing & Motion Graphics`,
-      description:contactPage?contactDescription(content.brand):`${content.brand} brings graphic design, photo editing, motion graphics, video editing and web development together. Explore our portfolio and get in touch.`,
-      path:contactPage?'/contact':'/',
-      schema:[org,contactPage?{'@type':'ContactPage',url:siteUrl+'/contact',name:contactTitle(content.brand),about:{'@id':siteUrl+'/#organization'}}:{'@type':'WebSite','@id':siteUrl+'/#website',url:siteUrl+'/',name:content.brand,publisher:{'@id':siteUrl+'/#organization'}}]
+      title:contactPage?contactTitle(content.brand):aboutPage?aboutTitle(content.brand):`${content.brand} | Graphic Design, Photo Editing & Motion Graphics`,
+      description:contactPage?contactDescription(content.brand):aboutPage?aboutDescription(content.brand):`${content.brand} (Nial Tech), the creative studio of Nayyer Ali, brings graphic design, photo editing, motion graphics, video editing and web development together. Explore our portfolio and get in touch.`,
+      path:contactPage?'/contact':aboutPage?'/about':'/',
+      schema:[org,person,contactPage?{'@type':'ContactPage',url:siteUrl+'/contact',name:contactTitle(content.brand),about:{'@id':siteUrl+'/#organization'}}:aboutPage?{'@type':'AboutPage',url:siteUrl+'/about',name:aboutTitle(content.brand),about:{'@id':siteUrl+'/#organization'}}:{'@type':'WebSite','@id':siteUrl+'/#website',url:siteUrl+'/',name:content.brand,alternateName:alternateNames,publisher:{'@id':siteUrl+'/#organization'}}]
     });
     if(contactPage)document.getElementById('contact')?.scrollIntoView();
+    if(aboutPage)document.getElementById('about')?.scrollIntoView();
   },[content]);
  if(!content)return <div className="site-loading"><a href="/app">Sign in to MyTime <ArrowUpRight size={16}/></a>{error?<><p role="alert">{error}</p><button onClick={()=>void load()}>Try again</button></>:<p>Opening a new perspective…</p>}</div>;
  const c=content;
@@ -63,7 +64,7 @@ export function Website(){
  {sections.services.visible&&<section id="services" className="site-services site-section"><div>{sectionHeading(sections.services)}</div><div className="site-service-list">{c.services.map((s,i)=><a key={i} href={whatsapp}><span>0{i+1}</span><h3>{s}</h3><ArrowUpRight size={24}/></a>)}</div></section>}
  <GoogleReviews/>
  {sections.contact.visible&&<section id="contact" className="site-contact"><p className="site-eyebrow">{sections.contact.eyebrow}</p><h2>{sections.contact.title}</h2><p>{sections.contact.text}</p><a className="site-pill" href={whatsapp}>Get in touch on WhatsApp <ArrowUpRight size={18}/></a><div className="site-contact-socials"><a href={instagramUrl} target="_blank" rel="noopener noreferrer"><Instagram size={18}/>Follow on Instagram<ArrowUpRight size={14}/></a><a href={mapsUrl} target="_blank" rel="noopener noreferrer"><MapPin size={18}/>Find us on Google Maps<ArrowUpRight size={14}/></a></div><div className="site-contact-details"><a className="site-pill site-call-button" href={`tel:+${c.whatsapp||'917909058028'}`}><Phone size={18} aria-hidden="true"/>+{c.whatsapp||'917909058028'}</a>{c.email&&<a href={`mailto:${c.email}`}>{c.email}</a>}{c.phone&&<a href={`tel:${c.phone.replace(/[^+\d]/g,'')}`}>{c.phone}</a>}{c.location&&<span>{c.location}</span>}</div></section>}
- </>}</main><footer id="site-footer" className="site-footer"><a className="site-logo" href="/"><img className="site-original-logo" src="/assets/website/nial-logo.png" alt={c.brand} width="200" height="54"/></a><p>© {new Date().getFullYear()} {c.brand}. All rights reserved.</p><div className="site-footer-socials"><a href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={17}/></a><a href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Find us on Google Maps"><MapPin size={17}/></a></div><a href="/app">Team sign in <ArrowUpRight size={14}/></a></footer>
+ </>}</main><footer id="site-footer" className="site-footer"><a className="site-logo" href="/"><img className="site-original-logo" src="/assets/website/nial-logo.png" alt={c.brand} width="200" height="54"/></a><p>© {new Date().getFullYear()} {c.brand}. All rights reserved.</p><p className="site-footer-identity">{c.brand} (Nial Tech) · Nayyer Ali · nial.in</p><div className="site-footer-socials"><a href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={17}/></a><a href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Find us on Google Maps"><MapPin size={17}/></a></div><a href="/app">Team sign in <ArrowUpRight size={14}/></a></footer>
  <Modal open={Boolean(selected)} onOpenChange={open=>{if(!open)setSelected(null);}} title={selected?.title||'Project'} description={selected?.category} wide>{selected&&<div className="site-project-detail"><img src={photo(c,selected.slot)} alt={selected.title}/><p>{selected.description}</p>{selected.portfolio_section_id&&<a href={`/portfolio/${selected.portfolio_section_id}`}>Explore the full gallery <ArrowUpRight size={16}/></a>}{selected.link&&<a href={selected.link} target="_blank" rel="noopener noreferrer">Watch on {selected.link.includes('vimeo')?'Vimeo':'YouTube'} <ExternalLink size={16}/></a>}</div>}</Modal>
  </div>;
 }

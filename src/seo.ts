@@ -13,4 +13,8 @@ export function setSeo({title,description,path='/',image='/assets/website/nial-l
 }
 export const contactTitle=(brand:string)=>`Contact ${brand} | Graphic Design, Photo Editing & Motion Graphics`;
 export const contactDescription=(brand:string)=>`Contact ${brand} on WhatsApp or by phone for graphic design, photo editing, motion graphics, video editing and web development projects.`;
-export const organization={'@type':'Organization','@id':`${siteUrl}/#organization`,name:'NialTech',url:siteUrl+'/',logo:siteUrl+'/assets/website/nial-logo.png',telephone:'+917909058028',contactPoint:[{'@type':'ContactPoint',telephone:'+917909058028',contactType:'customer support',url:'https://wa.me/917909058028'}],hasMap:'https://maps.app.goo.gl/VLryJgg4qdqUcgQ79',sameAs:['https://www.instagram.com/nayyer.ali1/']};
+export const aboutTitle=(brand:string)=>`About ${brand} (Nial Tech) and Nayyer Ali | Graphic Design, Photo Editing & Motion Graphics`;
+export const aboutDescription=(brand:string)=>`${brand} (also written Nial Tech, nial.in) is the creative studio of Nayyer Ali: graphic design, photo editing, motion graphics, video editing and web development.`;
+export const alternateNames=['Nial Tech','Nial','nial.in'];
+export const person={'@type':'Person','@id':`${siteUrl}/#person`,name:'Nayyer Ali',url:siteUrl+'/about',sameAs:['https://www.instagram.com/nayyer.ali1/'],worksFor:{'@id':`${siteUrl}/#organization`}};
+export const organization={'@type':'Organization','@id':`${siteUrl}/#organization`,name:'NialTech',alternateName:alternateNames,url:siteUrl+'/',founder:{'@id':`${siteUrl}/#person`},logo:siteUrl+'/assets/website/nial-logo.png',telephone:'+917909058028',contactPoint:[{'@type':'ContactPoint',telephone:'+917909058028',contactType:'customer support',url:'https://wa.me/917909058028'}],hasMap:'https://maps.app.goo.gl/VLryJgg4qdqUcgQ79',sameAs:['https://www.instagram.com/nayyer.ali1/']};
