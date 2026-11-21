@@ -2,6 +2,8 @@ import {compressImage} from './compressImage';
 // Keep the bearer token in memory. Reloading requires signing in again.
 let token = '';
 const base = (import.meta as unknown as {env: Record<string, string>}).env.VITE_API_URL || 'http://localhost:8000/api/v1';
+// A production build must talk to the API over HTTPS (or same-origin); a missing/typo'd VITE_API_URL must not silently send tokens over plain HTTP.
+const insecure = (import.meta as unknown as {env: Record<string, unknown>}).env.PROD === true && /^http:\/\//i.test(base) && !/^http:\/\/(localhost|127\.0\.0\.1)(:|\/)/i.test(base);
 export function setToken(value: string) { token = value; }
 async function checkResponse(response:Response):Promise<void> {
   if(response.ok)return;
@@ -17,6 +19,7 @@ async function checkResponse(response:Response):Promise<void> {
   throw new Error('We couldn’t complete that action. Please try again.');
 }
 export async function api<T>(path: string, method = 'GET', body?: unknown): Promise<T> {
+  if (insecure) throw new Error('This site is misconfigured: the API address must use HTTPS.');
   const response = await fetch(base + path, {
     method, headers: {'Content-Type': 'application/json', ...(token ? {Authorization: `Bearer ${token}`} : {})},
     ...(body === undefined ? {} : {body: JSON.stringify(body)})
@@ -26,12 +29,14 @@ export async function api<T>(path: string, method = 'GET', body?: unknown): Prom
 }
 
 export async function uploadAttachment(taskId:number,file:File):Promise<void> {
+  if(insecure)throw new Error('This site is misconfigured: the API address must use HTTPS.');
   const body=new FormData();body.append('file',file);
   const response=await fetch(`${base}/issues/${taskId}/attachments`,{method:'POST',headers:{Authorization:`Bearer ${token}`},body});
   await checkResponse(response);
 }
 
 export async function downloadAttachment(id:number,filename:string):Promise<void> {
+  if(insecure)throw new Error('This site is misconfigured: the API address must use HTTPS.');
   const response=await fetch(`${base}/attachments/${id}/download`,{headers:{Authorization:`Bearer ${token}`}});
   await checkResponse(response);
   const url=URL.createObjectURL(await response.blob());const link=document.createElement('a');link.href=url;link.download=filename;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
